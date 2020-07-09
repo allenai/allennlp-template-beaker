@@ -14,12 +14,12 @@ You will need [Docker](https://docs.docker.com/get-docker/) and [beaker](https:/
 
 ## Quick start
 
-To run `training_configs/transformer_qa.jsonnet` experiment, for example, follow these steps:
+To run the `training_configs/transformer_qa.jsonnet` experiment, for example, follow these steps:
 
 1. Build a Docker image named 'allennlp-transformer-qa-train':
 
     ```bash
-    docker build allennlp-transformer-qa-train .
+    docker build -t allennlp-transformer-qa-train .
     ```
 
 2. Upload the image to beaker:
@@ -34,6 +34,6 @@ To run `training_configs/transformer_qa.jsonnet` experiment, for example, follow
 
     ```bash
     beaker experiment create \
-        --name 'Transformer QA train' \
+        --name transformer-qa-train \
         -f beaker_configs/transformer_qa.yml
     ```
