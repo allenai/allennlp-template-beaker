@@ -1,16 +1,16 @@
 local transformer_model = 'bert-base-cased';
 
 local epochs = 3;
-local batch_size = 8;
+local batch_size = 16;
 
 {
   "dataset_reader": {
       "type": "transformer_squad",
       "transformer_model_name": transformer_model,
-      "skip_invalid_examples": true,
+      "skip_impossible_questions": true,
   },
   "validation_dataset_reader": self.dataset_reader + {
-      "skip_invalid_examples": false,
+      "skip_impossible_questions": false,
   },
   "train_data_path": "https://allennlp.s3.amazonaws.com/datasets/squad/squad-train-v1.1.json",
   "validation_data_path": "https://allennlp.s3.amazonaws.com/datasets/squad/squad-dev-v1.1.json",

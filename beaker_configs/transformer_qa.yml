@@ -1,13 +1,16 @@
+version: v2-alpha
 description: Transformer QA training run
 tasks:
-  - name: Transformer QA train
-    cluster: ai2/on-prem-ai2-server2
-    spec:
-      image: allennlp-transformer-qa-train
-      requirements:
-        gpuCount: 1
-      resultPath: /output
-      args:
+  - name: train
+    image:
+      beaker: allennlp-transformer-qa-train
+    context:
+      cluster: ai2/on-prem-ai2-server
+    resources:
+      gpuCount: 1
+    result:
+      path: /output
+    arguments:
         - train
         - training_configs/transformer_qa.jsonnet
         - -s
